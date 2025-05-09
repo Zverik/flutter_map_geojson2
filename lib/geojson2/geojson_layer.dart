@@ -287,7 +287,7 @@ class _GeoJsonLayerState extends State<GeoJsonLayer> {
 
       case 'MultiLineString':
         coordinates.whereType<List>().forEach((p) {
-          final points = _parseLineString(coordinates);
+          final points = _parseLineString(p);
           if (points != null) {
             _polylines.add(_buildLine(points, properties));
           }
@@ -301,7 +301,7 @@ class _GeoJsonLayerState extends State<GeoJsonLayer> {
 
       case 'MultiPolygon':
         coordinates.whereType<List>().forEach((p) {
-          final rings = _parsePolygon(coordinates);
+          final rings = _parsePolygon(p);
           if (rings != null) {
             _polygons.add(_buildPolygon(rings, properties));
           }
